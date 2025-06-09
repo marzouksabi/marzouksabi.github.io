@@ -290,7 +290,7 @@
     .hero-buttons {
       display: flex;
       gap: 1.5rem;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       justify-content: flex-start;
     }
 
@@ -312,6 +312,50 @@
       color: var(--bg-primary);
       transform: translateY(-3px);
       box-shadow: 0 15px 35px var(--shadow-glow);
+    }
+
+    /* CV Section */
+    .cv-section {
+      margin-bottom: 3rem;
+      padding: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 1rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cv-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--shadow-glow), transparent);
+      transition: left 0.6s;
+    }
+
+    .cv-section:hover::before {
+      left: 100%;
+    }
+
+    .cv-section h3 {
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      font-size: 1.3rem;
+    }
+
+    .cv-section p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .action-buttons {
+      display: flex;
+      justify-content: center;
     }
 
     /* Social Links */
@@ -471,6 +515,22 @@
       50% { opacity: 1; transform: scale(1.1); }
     }
 
+    /* Fade in animation */
+    .fade-in {
+      animation: fadeIn 1s ease-out 0.5s both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* Animations */
     @keyframes slideInLeft {
       from {
@@ -583,6 +643,18 @@
         <a href="contact.html" class="btn-secondary">Contactez-moi</a>
       </div>
       
+      <div class="cv-section fade-in">
+        <h3>Télécharger mon CV</h3>
+        <p>
+          Découvrez mon parcours complet et mes compétences détaillées
+        </p>
+        <div class="action-buttons">
+          <a href="cv/CV_SABI_Marzouk.pdf" download class="btn-secondary">
+            📄 Télécharger le CV
+          </a>
+        </div>
+      </div>
+      
       <div class="social-links">
         <a href="#" class="social-link">
           <span>🐦</span>
@@ -610,18 +682,6 @@
       </div>
     </div>
   </main>
-  <div class="cv-section fade-in">
-      <h3 style="margin-bottom: 1rem; color: var(--text-primary);">Télécharger mon CV</h3>
-      <p style="color: var(--text-secondary); margin-bottom: 2rem;">
-        Découvrez mon parcours complet et mes compétences détaillées
-      </p>
-      <div class="action-buttons" style="justify-content: center;">
-        <a href="cv/CV_SABI_Marzouk.pdf" download class="btn-secondary">
-          📄 Télécharger le CV
-        </a>
-      </div>
-    </div>
-  </div>
 
   <script>
     // Theme toggle
